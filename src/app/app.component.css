@@ -1,63 +1,130 @@
-/* This styles the container of the Text Analyzer */
+.top-nav {
+  background-color: #0056b3; /* Replace with the color of the bar in the image */
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0.5rem 1rem;
+}
+
+.logo-container .logo-link .logo {
+  height: 50px; /* Adjust the size as needed */
+}
+
+.logo-link .logo {
+  height: 50px; /* or any size you prefer */
+  width: auto; /* to maintain aspect ratio */
+}
+
+
+.navigation .nav-links {
+  list-style-type: none;
+  display: flex;
+  gap: 1rem;
+}
+
+.navigation .nav-links li a {
+  color: white;
+  text-decoration: none;
+  padding: 0.5rem 1rem;
+}
+
+.navigation .nav-links li a:hover {
+  text-decoration: underline;
+}
+
+.nav-icons {
+  display: flex;
+  gap: 1rem;
+}
+
+.search-button, .menu-button {
+  background: none;
+  border: none;
+  color: white;
+  cursor: pointer;
+}
+
+
 .text-analyzer-container {
-  max-width: 600px;
+  font-family: 'Arial', sans-serif;
+  max-width: 70%;
   margin: 2rem auto;
   padding: 2rem;
-  background-color: #f9f9f9;
+  background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
 }
 
-/* This styles the heading */
-.h1 {
+.title, .subtitle {
   color: #333;
   text-align: center;
-  margin-bottom: 2rem;
 }
 
-/* This styles the textarea */
-.textarea {
+.title {
+  margin-bottom: 1rem;
+}
+
+.subtitle {
+  margin-bottom: 0.5rem;
+}
+
+.description, .info {
+  color: #666;
+  font-size: 0.9rem;
+  text-align: center;
+  margin-bottom: 1rem;
+}
+
+.input-label {
+  display: block;
+  margin-bottom: 0.5rem;
+}
+
+.text-input {
   width: 100%;
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
-  margin-bottom: 1rem;
   font-family: 'Arial', sans-serif;
+  box-sizing: border-box;
+  margin-bottom: 1rem;
+  background-color: white;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Horizontal offset, vertical offset, blur radius, color */
+  transition: box-shadow 0.3s ease-in-out; /* Optional: Adds a smooth transition effect */
 }
 
-/* This styles the button */
-.button {
+.text-input:focus {
+  box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for when the input is focused */
+}
+
+.analyze-button {
+  padding: 0.75rem 1.5rem;
+  border-radius: 4px;
   background-color: #0056b3;
   color: white;
   border: none;
-  padding: 0.75rem 1.5rem;
-  font-size: 1rem;
-  border-radius: 4px;
+  font-family: 'Arial', sans-serif;
   cursor: pointer;
-  display: block;
-  width: 100%;
-  transition: background-color 0.3s ease;
+  transition: background-color 0.3s;
+  display: block; /* Change to inline-block if you don't want full width */
+  margin-left: auto; /* Align to the right */
+  width: 20%; /* Button width as per your requirement */
 }
 
-.button:hover {
+.analyze-button:hover {
   background-color: #003d82;
 }
 
-/* This styles the analysis result section */
-.analysis-result {
-  margin-top: 2rem;
-  padding: 1rem;
-  background-color: #e7f5ff;
-  border-left: 4px solid #2c7be5;
-  color: #2c7be5;
+/* styles for the selection part */
+.analysis-type-selector {
+  margin: 1rem 0;
 }
 
-.analysis-result h2 {
-  margin-top: 0;
-}
-
-/* This ensures the <p> tag does not add extra margin */
-.analysis-result p {
-  margin: 0;
-  white-space: pre-line; /* This will respect new lines in the result */
+.analysis-select {
+  padding: 0.5rem;
+  margin-left: 0.5rem;
+  border-radius: 4px;
+  border: 1px solid #ccc;
 }

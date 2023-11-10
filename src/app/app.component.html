@@ -1,15 +1,44 @@
-<!-- This is your text-analyzer.component.html -->
+
+<header class="top-nav">
+  <div class="logo-container">
+    <a href="/" class="logo-link">
+      <img src="assets/logo.png" alt="Company Logo" class="logo">
+    </a>
+  </div>
+  <nav class="navigation">
+    <ul class="nav-links">
+      <li><a href="#">Link 1</a></li> <!-- Replace # with actual link paths -->
+      <li><a href="#">Link 2</a></li>
+      <!-- Add more links as needed -->
+    </ul>
+    <div class="nav-icons">
+      <button class="search-button">Search Icon</button> <!-- Replace with actual icons or images -->
+      <button class="menu-button">Menu Icon</button>
+    </div>
+  </nav>
+</header>
 
 <div class="text-analyzer-container">
-  <h1>Text Analyzer</h1>
-  <div>
-    <textarea rows="4" cols="50" placeholder="Enter text to analyze" class="textarea"></textarea>
+  <h1 class="title">Text Analyzer Tool by Mira Schaar</h1>
+  <p class="description">
+    This tool is counting either vowels or consonants. Please enter your text, choose "vowels" or "consonants" or "both" and press the submit button.
+  </p>
+
+  <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="6" placeholder="Please write or paste the text you would like to analyse here."></textarea>
+
+  <!-- Selection for Analysis Type -->
+  <div class="analysis-type-selector">
+    <label for="analysis-type">Choose analysis type:</label>
+    <select id="analysis-type" class="analysis-select" [(ngModel)]="analysisType">
+      <option value="vowels">Vowels</option>
+      <option value="consonants">Consonants</option>
+      <option value="both">Both</option>
+    </select>
   </div>
-  <div>
-    <button (click)="analyzeText()" class="button">Analyze Text</button>
-  </div>
-  <div  class="analysis-result">
-    <h2>Analysis Result:</h2>
-    <p>{{ result }}</p>
-  </div>
+<div></div>
+  <button class="analyze-button" (click)="analyzeText()">Submit</button>
+
+
+  <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
+
 </div>
