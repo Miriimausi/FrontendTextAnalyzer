@@ -1,0 +1,15 @@
+<!-- This is your text-analyzer.component.html -->
+
+<div class="text-analyzer-container">
+  <h1>Text Analyzer</h1>
+  <div>
+    <textarea rows="4" cols="50" placeholder="Enter text to analyze" class="textarea"></textarea>
+  </div>
+  <div>
+    <button (click)="analyzeText()" class="button">Analyze Text</button>
+  </div>
+  <div  class="analysis-result">
+    <h2>Analysis Result:</h2>
+    <p>{{ result }}</p>
+  </div>
+</div>
