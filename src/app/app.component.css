@@ -9,26 +9,22 @@
 }
 
 .logo-container .logo {
-  height: 50px; /* Adjust as needed */
+  height: 50px;
+  margin-left: 10%;
 }
 
-.navigation .nav-links {
-  list-style-type: none;
-  margin: 0;
-  padding: 0;
-}
-
-.navigation .nav-links li {
-  display: inline;
+.nav-buttons {
+  display: flex;
   margin-right: 20px;
 }
 
-.nav-icons {
-  display: flex;
-}
-
-.nav-icons button {
-  margin-left: 10px;
+.nav-buttons button {
+  background-color: white;
+  border: none;
+  margin-right: 10px;
+  width: 60px;
+  height: 30px;
+  border-radius: 4px;
 }
 
 
@@ -40,8 +36,8 @@
   margin: 2rem;
   height: 80vh;
 }
-.text-analyzer-container {
 
+.text-analyzer-container {
   max-width: 70%;
   padding: 2rem;
   background-color: #FFFFFF;
@@ -72,6 +68,7 @@
 
 .text-input {
   width: 100%;
+  height: 100%;
   padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
@@ -86,6 +83,7 @@
 .text-input:focus {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for when the input is focused */
 }
+
 body {
   margin: 0;
   font-family: Arial, sans-serif;
@@ -104,6 +102,8 @@ body {
   display: inline-block; /* Change to inline-block if you don't want full width */
   margin-left: auto; /* Align to the right */
   width: 20%; /* Button width as per your requirement */
+  height: auto;
+  font-size: medium;
 }
 
 .analyze-button:hover {

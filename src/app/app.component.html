@@ -1,34 +1,28 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Text Analyzer</title>
 </head>
+
 <body>
 <header class="top-nav">
   <div class="logo-container">
-    <a href="/" class="logo-link">
       <img src="assets/logo.png" alt="Logo" class="logo">
-    </a>
   </div>
   <nav class="navigation">
-    <ul class="nav-links">
-      <li><a href="#">Link 1</a></li> <!-- Replace # with actual link paths -->
-      <li><a href="#">Link 2</a></li>
-      <!-- Add more links as needed -->
-    </ul>
-    <div class="nav-icons">
-      <button class="search-button">Search Icon</button> <!-- Replace with actual icons or images -->
-      <button class="menu-button">Menu Icon</button>
+    <div class="nav-buttons">
+      <button class="search-button">Search</button>
+      <button class="menu-button">Menu</button>
     </div>
   </nav>
 </header>
 <div class="content-area clearfix">
   <div class="text-analyzer-container">
 
-
-      <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
+    <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
 
     <h1 class="title">Text Analyzer Tool by Mira Schaar</h1>
     <p class="description">
@@ -55,16 +49,18 @@
 
   <div class="sidebar">
     <a class="card">
-      <h3>Karte 1</h3>
-      <p>Beschreibung für Karte 1...</p>
+      <h3>Typo Analyzer</h3>
+      <p class="description">
+        The Typo Analyzer checks text for spelling mistakes, misplaced punctuation, and incorrect grammar...</p>
     </a>
     <a class="card">
-      <h3>Karte 2</h3>
-      <p>Beschreibung für Karte 2...</p>
+      <h3>Picture Analyzer</h3>
+      <p class="description">The Picture Analyzer uses algorithms to evaluate and understand the contents of an image.
+        It detects and identifies objects, text...</p>
     </a>
     <a class="card">
-      <h3>Karte 3</h3>
-      <p>Beschreibung für Karte 3...</p>
+      <h3>Data Analyzer</h3>
+      <p class="description">The Data Analyzer processes datasets to uncover trends, patterns....</p>
     </a>
   </div>
 </div>

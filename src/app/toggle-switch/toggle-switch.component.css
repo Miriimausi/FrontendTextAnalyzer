@@ -1,4 +1,12 @@
 /* The switch - the box around the slider */
+
+.toggle-text{
+  color: #666;
+  font-size: 0.9rem;
+  font-family: 'Arial', sans-serif;
+
+
+}
 .toggle-switch {
   position: relative;
   display: inline-block;
