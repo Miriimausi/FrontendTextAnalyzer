@@ -3,6 +3,7 @@ import { CommonModule } from '@angular/common';
 import { RouterOutlet } from '@angular/router';
 import {FormsModule} from "@angular/forms";
 import {ToggleSwitchComponent} from "./toggle-switch/toggle-switch.component";
+import {TextAnalysisService} from "./text-analysis.service";
 
 @Component({
   selector: 'app-root',
@@ -11,20 +12,20 @@ import {ToggleSwitchComponent} from "./toggle-switch/toggle-switch.component";
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 
-  encapsulation: ViewEncapsulation.None
 })
 
 export class AppComponent {
   text: string = '';
-  result: string | null = null;
-  analysisType: string = 'both'; // Default selection
+  result: Map<string,number> |null = null;
+
+  analysisType: 'vowels' | 'consonants' | 'both' = 'both';
+
+  constructor(private textAnalysisService :TextAnalysisService){}
 
 
   analyzeText(): void {
-    this.result = 'Ergebnis der Analyse: ' + this.text;
+    this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
   }
-
-  // Inside app.component.ts
   handleToggle(toggled: boolean) {
     // toggled will be a boolean
     console.log('Toggle is now: ', toggled);

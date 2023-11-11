@@ -43,7 +43,14 @@
         <option value="both">Both</option>
       </select>
     </div>
-    <div></div>
+    <div *ngIf="result">
+      <h2>Analysis Result:</h2>
+      <ul>
+        <li *ngFor="let item of result | keyvalue">
+          Letter '{{item.key}}' appears {{item.value}} times
+        </li>
+      </ul>
+    </div>
     <button class="analyze-button" (click)="analyzeText()">Submit</button>
   </div>
 
@@ -51,16 +58,16 @@
     <a class="card">
       <h3>Typo Analyzer</h3>
       <p class="description">
-        The Typo Analyzer checks text for spelling mistakes, misplaced punctuation, and incorrect grammar...</p>
+        This tool checks text for spelling mistakes, misplaced punctuation, and incorrect grammar...</p>
     </a>
     <a class="card">
       <h3>Picture Analyzer</h3>
-      <p class="description">The Picture Analyzer uses algorithms to evaluate and understand the contents of an image.
+      <p class="description">This tool uses algorithms to evaluate and understand the contents of an image.
         It detects and identifies objects, text...</p>
     </a>
     <a class="card">
       <h3>Data Analyzer</h3>
-      <p class="description">The Data Analyzer processes datasets to uncover trends, patterns....</p>
+      <p class="description">This tool processes datasets to uncover trends, patterns....</p>
     </a>
   </div>
 </div>
