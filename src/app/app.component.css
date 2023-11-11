@@ -1,73 +1,61 @@
+/* Navigationbar styles */
 .top-nav {
-  background-color: #0056b3; /* Replace with the color of the bar in the image */
+  background-color: #0056b3;
   color: white;
+  padding: 10px;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 0.5rem 1rem;
 }
 
-.logo-container .logo-link .logo {
-  height: 50px; /* Adjust the size as needed */
+.logo-container .logo {
+  height: 50px; /* Adjust as needed */
 }
-
-.logo-link .logo {
-  height: 50px; /* or any size you prefer */
-  width: auto; /* to maintain aspect ratio */
-}
-
 
 .navigation .nav-links {
   list-style-type: none;
-  display: flex;
-  gap: 1rem;
+  margin: 0;
+  padding: 0;
 }
 
-.navigation .nav-links li a {
-  color: white;
-  text-decoration: none;
-  padding: 0.5rem 1rem;
-}
-
-.navigation .nav-links li a:hover {
-  text-decoration: underline;
+.navigation .nav-links li {
+  display: inline;
+  margin-right: 20px;
 }
 
 .nav-icons {
   display: flex;
-  gap: 1rem;
 }
 
-.search-button, .menu-button {
-  background: none;
-  border: none;
-  color: white;
-  cursor: pointer;
+.nav-icons button {
+  margin-left: 10px;
 }
 
 
+/* Main Content styles */
+/* Text Analyzer styles */
+.content-area {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem;
+  height: 80vh;
+}
 .text-analyzer-container {
-  font-family: 'Arial', sans-serif;
+
   max-width: 70%;
-  margin: 2rem auto;
   padding: 2rem;
   background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: grid;
+  flex: 1;
+  margin-right: 2rem;
+  overflow: auto;
 }
 
 .title, .subtitle {
   color: #333;
   text-align: center;
-}
-
-.title {
-  margin-bottom: 1rem;
-}
-
-.subtitle {
-  margin-bottom: 0.5rem;
 }
 
 .description, .info {
@@ -98,6 +86,12 @@
 .text-input:focus {
   box-shadow: 0 6px 12px rgba(0, 0, 0, 0.2); /* Larger shadow for when the input is focused */
 }
+body {
+  margin: 0;
+  font-family: Arial, sans-serif;
+}
+
+/* Add ons like Buttons, ToggleSwitch styles */
 
 .analyze-button {
   padding: 0.75rem 1.5rem;
@@ -105,10 +99,9 @@
   background-color: #0056b3;
   color: white;
   border: none;
-  font-family: 'Arial', sans-serif;
   cursor: pointer;
   transition: background-color 0.3s;
-  display: block; /* Change to inline-block if you don't want full width */
+  display: inline-block; /* Change to inline-block if you don't want full width */
   margin-left: auto; /* Align to the right */
   width: 20%; /* Button width as per your requirement */
 }
@@ -127,4 +120,36 @@
   margin-left: 0.5rem;
   border-radius: 4px;
   border: 1px solid #ccc;
+}
+
+
+/* Sidebar styles */
+.sidebar {
+  float: right;
+  width: 30%;
+  background-color: #FFFFFF;
+  border-radius: 8px;
+  box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  display: grid;
+  overflow: auto;
+}
+
+.card {
+  background-color: #fff;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-decoration: none;
+  color: black;
+  display: block;
+}
+
+.card:hover {
+  background-color: #e9e9e9;
+}
+
+/* Clearfix to handle the floating elements */
+.clearfix::after {
+  content: "";
+  clear: both;
+  display: table;
 }

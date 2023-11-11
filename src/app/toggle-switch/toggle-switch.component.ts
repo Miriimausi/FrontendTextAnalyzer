@@ -13,9 +13,9 @@ export class ToggleSwitchComponent {
   @Output() toggleChange = new EventEmitter<boolean>();
   isToggled: boolean = false;
 
-  // Make sure this method exists
-  onToggleChange() {
+  onToggleChange(event: any): void {
     this.isToggled = !this.isToggled;
+    this.isToggled = event.target.checked;
     this.toggleChange.emit(this.isToggled);
   }
 

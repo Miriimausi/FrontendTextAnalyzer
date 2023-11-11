@@ -1,8 +1,15 @@
-
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Analyzer</title>
+</head>
+<body>
 <header class="top-nav">
   <div class="logo-container">
     <a href="/" class="logo-link">
-      <img src="assets/logo.png" alt="Company Logo" class="logo">
+      <img src="assets/logo.png" alt="Logo" class="logo">
     </a>
   </div>
   <nav class="navigation">
@@ -17,28 +24,56 @@
     </div>
   </nav>
 </header>
+<div class="content-area clearfix">
+  <div class="text-analyzer-container">
 
-<div class="text-analyzer-container">
-  <h1 class="title">Text Analyzer Tool by Mira Schaar</h1>
-  <p class="description">
-    This tool is counting either vowels or consonants. Please enter your text, choose "vowels" or "consonants" or "both" and press the submit button.
-  </p>
 
-  <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="6" placeholder="Please write or paste the text you would like to analyse here."></textarea>
+      <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
 
-  <!-- Selection for Analysis Type -->
-  <div class="analysis-type-selector">
-    <label for="analysis-type">Choose analysis type:</label>
-    <select id="analysis-type" class="analysis-select" [(ngModel)]="analysisType">
-      <option value="vowels">Vowels</option>
-      <option value="consonants">Consonants</option>
-      <option value="both">Both</option>
-    </select>
+    <h1 class="title">Text Analyzer Tool by Mira Schaar</h1>
+    <p class="description">
+      This tool is counting either vowels or consonants. Please enter your text, choose "vowels" or "consonants" or
+      "both"
+      and press the submit button.
+    </p>
+
+    <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="6"
+              placeholder="Please write or paste the text you would like to analyse here."></textarea>
+
+    <!-- Selection for Analysis Type -->
+    <div class="analysis-type-selector">
+      <label for="analysis-type">Choose analysis type:</label>
+      <select id="analysis-type" class="analysis-select" [(ngModel)]="analysisType">
+        <option value="vowels">Vowels</option>
+        <option value="consonants">Consonants</option>
+        <option value="both">Both</option>
+      </select>
+    </div>
+    <div></div>
+    <button class="analyze-button" (click)="analyzeText()">Submit</button>
   </div>
-<div></div>
-  <button class="analyze-button" (click)="analyzeText()">Submit</button>
 
-
-  <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
-
+  <div class="sidebar">
+    <a class="card">
+      <h3>Karte 1</h3>
+      <p>Beschreibung für Karte 1...</p>
+    </a>
+    <a class="card">
+      <h3>Karte 2</h3>
+      <p>Beschreibung für Karte 2...</p>
+    </a>
+    <a class="card">
+      <h3>Karte 3</h3>
+      <p>Beschreibung für Karte 3...</p>
+    </a>
+  </div>
 </div>
+
+</body>
+</html>
+
+<header class="top-nav">
+
+</header>
+
+

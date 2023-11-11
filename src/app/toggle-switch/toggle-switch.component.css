@@ -13,17 +13,18 @@
   height: 0;
 }
 
-/* The slider */
+/* slider styles */
 .slider {
   position: absolute;
   cursor: pointer;
   top: 0;
-  left: 0;
   right: 0;
+  left:0;
   bottom: 0;
   background-color: #ccc; /* Slider color when in OFF position */
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 34px;
 }
 
 .slider:before {
@@ -36,14 +37,15 @@
   background-color: white;
   -webkit-transition: .4s;
   transition: .4s;
+  border-radius: 50%;
 }
 
 input:checked + .slider {
-  background-color: #2196F3; /* Slider color when in ON position */
+  background-color: #0056b3; /* Slider color when in ON position */
 }
 
 input:focus + .slider {
-  box-shadow: 0 0 1px #2196F3;
+  box-shadow: 0 0 1px #0056b3;
 }
 
 input:checked + .slider:before {
