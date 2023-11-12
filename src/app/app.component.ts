@@ -17,17 +17,17 @@ import {TextAnalysisService} from "./text-analysis.service";
 export class AppComponent {
   text: string = '';
   result: Map<string,number> |null = null;
-
   analysisType: 'vowels' | 'consonants' | 'both' = 'both';
+  resultsArray: Map<string,number>[] = [];
 
   constructor(private textAnalysisService :TextAnalysisService){}
 
 
   analyzeText(): void {
     this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
+    this.resultsArray.push(this.result);
   }
   handleToggle(toggled: boolean) {
-    // toggled will be a boolean
     console.log('Toggle is now: ', toggled);
   }
 

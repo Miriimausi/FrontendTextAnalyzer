@@ -21,7 +21,6 @@
 </header>
 <div class="content-area clearfix">
   <div class="text-analyzer-container">
-
     <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
 
     <h1 class="title">Text Analyzer Tool by Mira Schaar</h1>
@@ -30,11 +29,9 @@
       "both"
       and press the submit button.
     </p>
-
     <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="6"
               placeholder="Please write or paste the text you would like to analyse here."></textarea>
 
-    <!-- Selection for Analysis Type -->
     <div class="analysis-type-selector">
       <label for="analysis-type">Choose analysis type:</label>
       <select id="analysis-type" class="analysis-select" [(ngModel)]="analysisType">
@@ -43,18 +40,21 @@
         <option value="both">Both</option>
       </select>
     </div>
-    <div *ngIf="result">
-      <h2>Analysis Result:</h2>
-      <ul>
-        <li *ngFor="let item of result | keyvalue">
-          Letter '{{item.key}}' appears {{item.value}} times
-        </li>
-      </ul>
+    <div>
+      <h2>Analysis Results:</h2>
+      <div *ngFor="let result of resultsArray; let i = index">
+        <h3>Result {{ i + 1 }}:</h3>
+        <ul>
+          <li *ngFor="let item of result | keyvalue">
+            Letter '{{item.key}}' appears {{item.value}} times
+          </li>
+        </ul>
+      </div>
     </div>
-    <button class="analyze-button" (click)="analyzeText()">Submit</button>
-  </div>
+      <button class="analyze-button" (click)="analyzeText()">Submit</button>
+    </div>
 
-  <div class="sidebar">
+    <div class="sidebar">
     <a class="card">
       <h3>Typo Analyzer</h3>
       <p class="description">
