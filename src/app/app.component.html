@@ -42,10 +42,10 @@
     </div>
     <div class="analysis-result">
       <h2 class="analysis-text">Analysis Results:</h2>
-      <div *ngFor="let result of resultsArray; let i = index">
-        <h3 class="analysis-text">Result {{ i + 1 }}:</h3>
+      <div *ngFor="let entry of resultsArray; let i = index">
+        <h3 class="analysis-text">Result {{ i + 1 }} for "{{ entry.text }}" :</h3>
         <ul>
-          <li *ngFor="let item of result | keyvalue">
+          <li *ngFor="let item of entry.result | keyvalue">
             Letter '{{item.key}}' appears {{item.value}} times
           </li>
         </ul>
