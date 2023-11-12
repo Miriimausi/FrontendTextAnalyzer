@@ -4,14 +4,13 @@
   color: #666;
   font-size: 0.9rem;
   font-family: 'Arial', sans-serif;
-
-
 }
+
 .toggle-switch {
   position: relative;
   display: inline-block;
-  width: 60px; /* Width of the switch */
-  height: 34px; /* Height of the switch */
+  width: 60px;
+  height: 34px;
 }
 
 /* Hide default HTML checkbox */
@@ -47,7 +46,6 @@
   transition: .4s;
   border-radius: 50%;
 }
-
 input:checked + .slider {
   background-color: #0056b3; /* Slider color when in ON position */
 }
@@ -62,11 +60,3 @@ input:checked + .slider:before {
   transform: translateX(26px); /* Slide button to the right */
 }
 
-/* Rounded sliders */
-.slider.round {
-  border-radius: 34px;
-}
-
-.slider.round:before {
-  border-radius: 50%;
-}

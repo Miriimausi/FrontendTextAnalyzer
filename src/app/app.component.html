@@ -10,7 +10,7 @@
 <body>
 <header class="top-nav">
   <div class="logo-container">
-      <img src="assets/logo.png" alt="Logo" class="logo">
+    <img src="assets/logo.png" alt="Logo" class="logo">
   </div>
   <nav class="navigation">
     <div class="nav-buttons">
@@ -19,31 +19,31 @@
     </div>
   </nav>
 </header>
+
 <div class="content-area clearfix">
   <div class="text-analyzer-container">
     <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
-
-    <h1 class="title">Text Analyzer Tool by Mira Schaar</h1>
+    <h1 class="title">Text Analyzer tool by Mira Schaar</h1>
     <p class="description">
       This tool is counting either vowels or consonants. Please enter your text, choose "vowels" or "consonants" or
-      "both"
-      and press the submit button.
-    </p>
-    <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="6"
+      "both" and press the submit button.</p>
+    <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="8"
               placeholder="Please write or paste the text you would like to analyse here."></textarea>
 
     <div class="analysis-type-selector">
-      <label for="analysis-type">Choose analysis type:</label>
+      <label class="analysis-select-text" for="analysis-type">Choose analysis type:</label>
       <select id="analysis-type" class="analysis-select" [(ngModel)]="analysisType">
         <option value="vowels">Vowels</option>
         <option value="consonants">Consonants</option>
         <option value="both">Both</option>
       </select>
+      <button class="submit-button" (click)="analyzeText()">Submit</button>
+
     </div>
-    <div>
-      <h2>Analysis Results:</h2>
+    <div class="analysis-result">
+      <h2 class="analysis-text">Analysis Results:</h2>
       <div *ngFor="let result of resultsArray; let i = index">
-        <h3>Result {{ i + 1 }}:</h3>
+        <h3 class="analysis-text">Result {{ i + 1 }}:</h3>
         <ul>
           <li *ngFor="let item of result | keyvalue">
             Letter '{{item.key}}' appears {{item.value}} times
@@ -51,32 +51,27 @@
         </ul>
       </div>
     </div>
-      <button class="analyze-button" (click)="analyzeText()">Submit</button>
-    </div>
+  </div>
 
-    <div class="sidebar">
+  <div class="sidebar">
     <a class="card">
       <h3>Typo Analyzer</h3>
-      <p class="description">
-        This tool checks text for spelling mistakes, misplaced punctuation, and incorrect grammar...</p>
+      <p class="description-card">This tool checks text for spelling mistakes, misplaced punctuation, and incorrect
+        grammar...</p>
     </a>
     <a class="card">
       <h3>Picture Analyzer</h3>
-      <p class="description">This tool uses algorithms to evaluate and understand the contents of an image.
+      <p class="description-card">This tool uses algorithms to evaluate and understand the contents of an image.
         It detects and identifies objects, text...</p>
     </a>
     <a class="card">
       <h3>Data Analyzer</h3>
-      <p class="description">This tool processes datasets to uncover trends, patterns....</p>
+      <p class="description-card">This tool processes datasets to uncover trends, patterns....</p>
     </a>
   </div>
 </div>
 
 </body>
 </html>
-
-<header class="top-nav">
-
-</header>
 
 
