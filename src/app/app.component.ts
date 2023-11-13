@@ -5,7 +5,7 @@ import {FormsModule} from "@angular/forms";
 import {ToggleSwitchComponent} from "./toggle-switch/toggle-switch.component";
 import {TextAnalysisService} from "./services/text-analysis/text-analysis.service";
 import {TextAnalysisApiService} from "./services/api/text-analysis.service.api";
-import {HttpClient, HttpClientModule} from "@angular/common/http";
+import { HttpClientModule} from "@angular/common/http";
 
 
 @Component({
@@ -25,18 +25,16 @@ export class AppComponent {
   isOnline: boolean = false;
 
 
-  constructor( private textAnalysisService: TextAnalysisService) {
+  constructor(private textAnalysisService: TextAnalysisService) {
   }
 
-analyzeText(): void {
-  if (this.isOnline) {
-  } else {
-    this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
-    this.resultsArray.push({text: this.text, result: this.result});
+  analyzeText(): void {
+    if (this.isOnline) {
+    } else {
+      this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
+      this.resultsArray.push({text: this.text, result: this.result});
+    }
   }
- }
-
-
 
 
 //analyzeText(): void {
