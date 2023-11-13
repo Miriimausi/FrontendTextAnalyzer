@@ -17,8 +17,5 @@ export class TextAnalysisApiService {
     return this.http.post<any>(`${this.apiUrl}/analyze`, {text, analysisType});
   }
 
-  getText(): Observable<string> {
-    return this.http.get<string>(`${this.apiUrl}/text`, { responseType: 'text' as 'json' });
-  }
 
 }

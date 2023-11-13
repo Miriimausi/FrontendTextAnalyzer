@@ -5,7 +5,6 @@ import {FormsModule} from "@angular/forms";
 import {ToggleSwitchComponent} from "./toggle-switch/toggle-switch.component";
 import {TextAnalysisService} from "./services/text-analysis/text-analysis.service";
 import {TextAnalysisApiService} from "./services/api/text-analysis.service.api";
-import {ApiService} from "./services/api/api.service";
 import {HttpClient, HttpClientModule} from "@angular/common/http";
 
 
@@ -26,45 +25,35 @@ export class AppComponent {
   isOnline: boolean = false;
 
 
-  constructor(private httpClient: HttpClient, private textAnalysisService: TextAnalysisService, private apiService: ApiService) {
+  constructor( private textAnalysisService: TextAnalysisService) {
   }
 
-  analyzeText(): void {
-    if (this.isOnline) {
-    } else {
-      this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
-      this.resultsArray.push({text: this.text, result: this.result});
-    }
-
+analyzeText(): void {
+  if (this.isOnline) {
+  } else {
+    this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
+    this.resultsArray.push({text: this.text, result: this.result});
   }
-  callTextEndpoint(): void {
-    this.apiService.getText().subscribe(response => {
-      console.log(response); // Handle the response here
-      // For example, store it in a variable to display in your template
-    }, error => {
-      console.error('Error calling /text endpoint: ', error);
-    });
-  }
+ }
 
-// analyzeText(): void {
-//   if (this.isOnline) {
-//     // Online mode: Call the API service and subscribe to get the result
-//     this.textAnalysisApiService.analyzeText(this.text, this.analysisType).subscribe({
-//       next: (response) => {
-//         // Assuming the response is the object that can be directly converted to Map
-//         this.resultsArray.push({text: this.text, result: new Map(Object.entries(response))});
-//       },
-//       error: (error) => {
-//         // Handle errors here, for example, by showing an error message to the user
-//         console.error('Error calling the analysis API', error);
-//       }
-//     });
-//   } else {
-//     // Offline mode: Use the local text analysis service
-//     this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
-//     this.resultsArray.push({text: this.text, result: this.result});
-//   }
-// }
+
+
+
+//analyzeText(): void {
+//  if (this.isOnline) {
+//    this.textAnalysisApiService.analyzeText(this.text, this.analysisType).subscribe({
+//      next: (response) => {
+//        this.resultsArray.push({text: this.text, result: new Map(Object.entries(response))});
+//      },
+//      error: (error) => {
+//        console.error('Error calling the analysis API', error);
+//      }
+//    });
+//  } else {
+//    this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
+//    this.resultsArray.push({text: this.text, result: this.result});
+//  }
+//}
 
   handleToggle(toggled: boolean) {
     this.isOnline = toggled;
