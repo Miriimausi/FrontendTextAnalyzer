@@ -1,18 +1,17 @@
 /* <------------Navigationbar styles -------------> */
 .top-nav {
   background-color: #0056b3;
-  padding: 25px;
+  padding: 20px; /* Reduced padding */
   display: flex;
   justify-content: space-between;
   align-items: center;
   border-radius: 4px;
-  margin: 1rem;
+  margin: 0.5rem; /* Reduced margin */
 }
 
 .logo-container .logo {
   height: 50px;
   margin-left: 10%;
-  margin-top: 10px;
 }
 
 .nav-buttons {
@@ -24,8 +23,7 @@
   background-color: white;
   border: none;
   margin-right: 10px;
-  width: 60px;
-  height: 30px;
+  padding: 10px 20px;
   border-radius: 4px;
   cursor: pointer;
 }
@@ -34,14 +32,12 @@
   background-color: #e9e9e9;
 }
 
-
-/* <------------- Main Content styles --------------->*/
-/* Text Analyzer styles */
+/* <------------- Main Content styles ---------------> */
 .content-area {
   display: flex;
-  justify-content: space-between;
-  margin: 1rem;
-  height: 82vh;
+  flex-wrap: wrap;
+  margin: 0.5rem;
+  height: 85vh;
 }
 
 .text-analyzer-container {
@@ -50,39 +46,35 @@
   background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-  display: grid;
   flex: 1;
-  margin-right: 1rem;
+  margin-right: 0.5rem;
+  display: grid;
 }
 
 .title {
+  margin-top: 0;
+  margin-bottom: 0;
   color: #333;
   text-align: center;
-  margin-top: 5px;
-  margin-bottom: 5px;
 }
 
 .description {
-  color: #666;
+  margin-top: 0;
   font-size: 0.9rem;
-  margin-top: 5px;
+  color: #666;
   text-align: center;
 }
 
-.input-label {
-  display: block;
-  margin-bottom: 0.5rem;
+.analysis-select-text, .description-card {
+  font-size: 0.9rem;
 }
 
 .text-input {
   width: 100%;
-  height: 100%;
-  padding: 0.5rem;
   border: 1px solid #ddd;
   border-radius: 4px;
   font-family: 'Arial', sans-serif;
   box-sizing: border-box;
-  margin-bottom: 1rem;
   background-color: white;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   transition: box-shadow 0.3s ease-in-out;
@@ -95,6 +87,9 @@
 body {
   margin: 0;
   font-family: Arial, sans-serif;
+  min-width: 800px;
+  min-height: 600px;
+  overflow-x: auto;
 }
 
 .analysis-result {
@@ -105,28 +100,9 @@ body {
   width: 100%;
   box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-  overflow: auto;
+  overflow-y: auto;
+  max-height: 250px;
 }
-
-.analysis-result h2, .analysis-result h3 {
-  font-size: 0.9rem;
-  color: #333;
-  margin-bottom: 10px;
-  margin-left: 10px;
-}
-
-.analysis-result li {
-  font-size: 0.9rem;
-  color: #333;
-
-}
-
-.analysis-result li:last-child {
-  margin-bottom: 0; /* Removing margin from the last item */
-}
-
-
-/*<------------ Add ons like Buttons, ToggleSwitch styles --------> */
 
 .submit-button {
   padding: 0.75rem 1.5rem;
@@ -145,43 +121,87 @@ body {
   background-color: #003d82;
 }
 
-/* <--------- styles for the selection part --------> */
 .analysis-type-selector {
-  margin: 1rem 0;
   display: flex;
-  justify-content: space-between; /* This will push the dropdown and button to the extremes of the container */
+  justify-content: space-between;
   align-items: center;
-
 }
 
-.analysis-select {
-  padding: 0.5rem;
-  margin-left: 0.5rem;
+select {
+
+  width: 150px;
+  padding: 0.75rem 1.5rem;
   border-radius: 4px;
-  border: 1px solid #ccc;
+  border: 1px solid #ddd;
+  background-color: white;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  appearance: none;
+  font-size: 1rem;
+  color: #333;
   cursor: pointer;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
 }
 
-.analysis-select:hover {
-  background-color: #e9e9e9;
 
-}
-
-.analysis-select-text {
-  color: #666;
+.analysis-result h2, .analysis-result h3, .analysis-result li {
+  font-size: 0.9rem;
+  color: #333;
   text-align: left;
+
+}
+
+/* <-------------- error message ----------> */
+.error-modal {
+  position: fixed;
+  z-index: 1;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgb(0, 0, 0);
+  background-color: rgba(0, 0, 0, 0.4);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.error-content {
+  background-color: white;
+  color: red;
+  margin: auto;
+  padding: 20px;
+  border: 2px solid red;
+  width: 80%;
+  max-width: 500px;
+  border-radius: 5px;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
 }
 
 
 /* <---------------- Sidebar styles ---------------> */
 .sidebar {
-  float: right;
   width: 30%;
   background-color: #FFFFFF;
   border-radius: 8px;
   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
   display: grid;
   overflow: auto;
+  margin-top: 0;
 }
 
 .card {
@@ -202,11 +222,4 @@ body {
   font-size: 0.9rem;
   margin-top: 5px;
   text-align: left;
-}
-
-/* Clearfix to handle the floating elements */
-.clearfix::after {
-  content: "";
-  clear: both;
-  display: table;
 }

@@ -1,5 +1,7 @@
 import {Injectable} from '@angular/core';
 import {TextAnalysisResultInterface} from "./text-analysis-result.interface";
+import {Observable, of} from "rxjs";
+import {AnalysisType} from "../../enums/analysis-type.enum";
 
 @Injectable({
   providedIn: 'root'
@@ -9,8 +11,7 @@ export class TextAnalysisService {
   constructor() {
   }
 
-
-  analyzeText(text: string, type: 'vowels' | 'consonants' | 'both'): TextAnalysisResultInterface {
+  analyzeText(text: string, analysisType: AnalysisType): Observable<TextAnalysisResultInterface> {
     const vowelSet = new Set(['a', 'e', 'i', 'o', 'u']);
     const vowelsResult: { [key: string]: number } = {};
     const consonantsResult: { [key: string]: number } = {};
@@ -23,15 +24,23 @@ export class TextAnalysisService {
       }
     }
 
-    switch (type) {
-      case "vowels":
-        return {vowelsResult, consonantsResult: {}};
-      case "consonants":
-        return {vowelsResult: {}, consonantsResult};
-      case "both":
-        return {vowelsResult, consonantsResult};
+    let result: TextAnalysisResultInterface;
+
+    switch (analysisType) {
+      case AnalysisType.Vowels:
+        result = { vowelsResult, consonantsResult: {} };
+        break;
+      case AnalysisType.Consonants:
+        result = { vowelsResult: {}, consonantsResult };
+        break;
+      case AnalysisType.Both:
+        result = { vowelsResult, consonantsResult };
+        break;
       default:
         throw new Error("Invalid analysis type. Please try again.");
     }
+
+    // Return the result as an observable
+    return of(result);
   }
 }
