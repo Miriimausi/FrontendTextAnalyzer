@@ -12,6 +12,7 @@ import { HttpClientModule} from "@angular/common/http";
   selector: 'app-root',
   standalone: true,
   imports: [CommonModule, RouterOutlet, FormsModule, ToggleSwitchComponent, HttpClientModule],
+  providers: [TextAnalysisApiService],
   templateUrl: './app.component.html',
   styleUrls: ['./app.component.css'],
 
@@ -25,33 +26,34 @@ export class AppComponent {
   isOnline: boolean = false;
 
 
-  constructor(private textAnalysisService: TextAnalysisService) {
+  constructor(private textAnalysisService: TextAnalysisService, private textAnalysisApiService: TextAnalysisApiService) {
   }
 
-  analyzeText(): void {
-    if (this.isOnline) {
-    } else {
-      this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
-      this.resultsArray.push({text: this.text, result: this.result});
-    }
+// analyzeText(): void {
+//   if (this.isOnline) {
+
+//   } else {
+//     this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
+//     this.resultsArray.push({text: this.text, result: this.result});
+//   }
+// }
+
+
+analyzeText(): void {
+  if (this.isOnline) {
+    this.textAnalysisApiService.analyzeText(this.text, this.analysisType).subscribe({
+      next: (response) => {
+        this.resultsArray.push({text: this.text, result: new Map(Object.entries(response))});
+      },
+      error: (error) => {
+        console.error('Error calling the analysis API', error);
+      }
+    });
+  } else {
+    this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
+    this.resultsArray.push({text: this.text, result: this.result});
   }
-
-
-//analyzeText(): void {
-//  if (this.isOnline) {
-//    this.textAnalysisApiService.analyzeText(this.text, this.analysisType).subscribe({
-//      next: (response) => {
-//        this.resultsArray.push({text: this.text, result: new Map(Object.entries(response))});
-//      },
-//      error: (error) => {
-//        console.error('Error calling the analysis API', error);
-//      }
-//    });
-//  } else {
-//    this.result = this.textAnalysisService.analyzeText(this.text, this.analysisType);
-//    this.resultsArray.push({text: this.text, result: this.result});
-//  }
-//}
+}
 
   handleToggle(toggled: boolean) {
     this.isOnline = toggled;
