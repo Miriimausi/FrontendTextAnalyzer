@@ -98,18 +98,33 @@ body {
 }
 
 .analysis-result {
+  background-color: #f3f3f3;
+  border: 1px solid #ddd;
+  padding: 0.5rem;
+  border-radius: 8px;
   width: 100%;
+  box-sizing: border-box;
   box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
   overflow: auto;
 }
 
-.analysis-text {
-  color: #666;
+.analysis-result h2, .analysis-result h3 {
   font-size: 0.9rem;
-  text-align: left;
-  margin-bottom: 1rem;
-  margin-left: 1rem;
+  color: #333;
+  margin-bottom: 10px;
+  margin-left: 10px;
 }
+
+.analysis-result li {
+  font-size: 0.9rem;
+  color: #333;
+
+}
+
+.analysis-result li:last-child {
+  margin-bottom: 0; /* Removing margin from the last item */
+}
+
 
 /*<------------ Add ons like Buttons, ToggleSwitch styles --------> */
 
