@@ -39,7 +39,7 @@ export class AppComponent {
       this.textAnalysisApiService.analyzeText(this.text, this.selectedAnalysisType)
         .subscribe({
           next: (response) => {
-            this.resultsArray.push({ text: this.text, result: response });
+            this.resultsArray.push({text: this.text, result: response});
           },
           error: (error) => {
             console.error('Error calling the analysis API', error);
@@ -51,7 +51,7 @@ export class AppComponent {
       this.textAnalysisService.analyzeText(this.text, this.selectedAnalysisType)
         .subscribe({
           next: (result) => {
-            this.resultsArray.push({ text: this.text, result: result });
+            this.resultsArray.push({text: this.text, result: result});
           },
           error: (error) => {
             console.error('Error during offline text analysis', error);

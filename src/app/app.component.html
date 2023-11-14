@@ -7,11 +7,11 @@
   <title>Text Analyzer</title>
 </head>
 
-<body>
+<body class="dashboard">
 <header class="top-nav">
-  <div class="logo-container">
-    <img src="assets/logo.png" alt="Logo" class="logo">
-  </div>
+  <h2 class="nav-title">
+  Text Analyzer by Mira Schaar
+  </h2>
   <nav class="navigation">
     <div class="nav-buttons">
       <button class="search-button">Search</button>
@@ -20,10 +20,9 @@
   </nav>
 </header>
 
-<div class="content-area clearfix">
+<main class="content-area">
   <div class="text-analyzer-container">
     <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
-    <h1 class="title">Text Analyzer tool by Mira Schaar</h1>
     <div class="description">
       This tool is counting either vowels or consonants. Please enter your text, choose "vowels" or "consonants" or
       "both" and press the submit button.
@@ -71,7 +70,7 @@
     </div>
   </div>
 
-  <div class="sidebar">
+  <aside class="sidebar">
     <a class="card">
       <h3>Typo Analyzer</h3>
       <p class="description-card">This tool checks text for spelling mistakes, misplaced punctuation, and incorrect
@@ -86,9 +85,8 @@
       <h3>Data Analyzer</h3>
       <p class="description-card">This tool processes datasets to uncover trends, patterns....</p>
     </a>
-  </div>
-</div>
-
+  </aside>
+</main>
 </body>
 </html>
 
