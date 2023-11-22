@@ -28,7 +28,7 @@
   right: 0;
   left:0;
   bottom: 0;
-  background-color: #597f94 ;
+  background-color: #131722 ;
   transition: background-color .4s, transform .4s;
   border-radius: 34px;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
@@ -48,7 +48,7 @@
 }
 
 input:checked + .slider {
-  background-color:  #131722;
+  background-color: #6bb1d6 ;
 
 }
 
