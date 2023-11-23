@@ -122,7 +122,7 @@ select {
   width: 100%;
   box-sizing: border-box;
   overflow-y: auto;
-  max-height: 250px;
+  max-height: 180px;
 }
 
 .analysis-result h2, .analysis-result h3, .analysis-result li {
@@ -176,13 +176,15 @@ select {
 /* <---------------- Sidebar styles ---------------> */
 .sidebar {
   width: 30%;
-
+  height: 100%;
   display: grid;
   background-color: #213555;
-
+  gap: 10px;
+  padding-top: 5px;
 }
 
 .card {
+
   background-color: #2a3f5f;
   border: 1px solid #2a3f5f;
   margin-bottom: 10px;
