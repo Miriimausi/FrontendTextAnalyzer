@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Analyzer</title>
+</head>
+
+<body class="dashboard">
+
+<main class="content-area">
+  <div class="text-analyzer-container">
+    <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
+    <div class="description">
+      This tool is counting either vowels or consonants. Please enter your text, choose "vowels" or "consonants" or
+      "both" and press the submit button.
+    </div>
+
+    <div class="error-modal" *ngIf="errorMessage">
+      <div class="error-content">
+        <span class="close" (click)="closeError()">&times;</span>
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+
+    <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="15"
+              placeholder="Please write or paste the text you would like to analyse here."></textarea>
+
+    <div class="analysis-type-selector">
+      <label for="analysis-type">Choose analysis type: </label>
+      <select id="analysis-type" [(ngModel)]="selectedAnalysisType">
+        <option *ngFor="let type of analysisTypeOptions" [value]="type">
+          {{ type }}
+        </option>
+      </select>
+
+
+
+      <button class="submit-button" (click)="analyzeText()">Submit</button>
+
+    </div>
+
+
+    <div class="analysis-result">
+      <h2>Analysis Results:</h2>
+      <div *ngFor="let entry of resultsArray; let i = index">
+        <h3>Result {{ i + 1 }} for "{{ entry.text }}" :</h3>
+        <ul>
+          <li *ngFor="let vowel of entry.result.vowelsResult | keyvalue">
+            Vowel '{{vowel.key}}' appears {{vowel.value}} times
+          </li>
+          <li *ngFor="let consonant of entry.result.consonantsResult | keyvalue">
+            Consonant '{{consonant.key}}' appears {{consonant.value}} times
+          </li>
+
+        </ul>
+      </div>
+    </div>
+  </div>
+
+  <aside class="sidebar">
+    <a class="card">
+      <h3>Typo Analyzer</h3>
+      <p class="description-card">This tool checks text for spelling mistakes, misplaced punctuation, and incorrect
+        grammar...</p>
+    </a>
+    <a class="card">
+      <h3>Picture Analyzer</h3>
+      <p class="description-card">This tool uses algorithms to evaluate and understand the contents of an image.
+        It detects and identifies objects, text...</p>
+    </a>
+    <a class="card">
+      <h3>Data Analyzer</h3>
+      <p class="description-card">This tool processes datasets to uncover trends, patterns....</p>
+    </a>
+  </aside>
+</main>
+</body>
+</html>
+
+
