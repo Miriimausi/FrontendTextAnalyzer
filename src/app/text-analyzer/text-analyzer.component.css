@@ -122,8 +122,8 @@ select {
   width: 100%;
   box-sizing: border-box;
   overflow-y: auto;
-  height: 200px;
-  max-height: 180px;
+  height: 300px;
+
 }
 
 .analysis-result h2, .analysis-result h3, .analysis-result li {
