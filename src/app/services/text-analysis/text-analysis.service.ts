@@ -7,7 +7,6 @@ import {AnalysisType} from "../../enums/analysis-type.enum";
   providedIn: 'root'
 })
 export class TextAnalysisService {
-
   constructor() {
   }
 
@@ -36,11 +35,9 @@ export class TextAnalysisService {
       case AnalysisType.Both:
         result = { vowelsResult, consonantsResult };
         break;
-      default:
-        throw new Error("Invalid analysis type. Please try again.");
     }
 
-    // Return the result as an observable
+
     return of(result);
   }
 }

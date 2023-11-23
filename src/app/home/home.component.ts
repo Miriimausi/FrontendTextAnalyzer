@@ -1,7 +1,7 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
 import {RouterOutlet} from "@angular/router";
-import {ToggleSwitchComponent} from "../toggle-switch/toggle-switch.component";
+import {ToggleSwitchComponent} from "../ui-components/toggle-switch/toggle-switch.component";
 
 @Component({
   selector: 'app-home',
