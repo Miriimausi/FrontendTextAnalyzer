@@ -1,12 +1,13 @@
 import {NgModule} from '@angular/core';
 import {RouterModule, Routes} from '@angular/router';
-import {HomeComponent} from "./home/home.component";
 import {TextAnalyzerComponent} from "./text-analyzer/text-analyzer.component";
+import {HomeComponent} from "./home/home.component";
 
 export const routes: Routes = [
-  {path: '', redirectTo: '/text-analyzer', pathMatch: 'full'},
+  {path: '', redirectTo: '/home', pathMatch: 'full'},
+  {path: 'home', component: HomeComponent},
   {path: 'text-analyzer', component: TextAnalyzerComponent},
- // { path: '**', component: NotFoundComponent},
+  // { path: '**', component: NotFoundComponent},
 
 ];
 

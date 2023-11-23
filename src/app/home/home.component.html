@@ -1,1 +1,63 @@
-<p>home works!</p>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Text Analyzer by Mira Schaar</title>
+</head>
+<body class="dashboard">
+<main class="content-area">
+  <div class="home-container">
+    <div class="text-content">
+      <h2>Text Analyzer requirements: </h2>
+      <p><strong>Frontend part:</strong></p>
+      <ul>
+        <li>Implement an Angular application that supports the following requirements:
+          <ul>
+            <li>A user can enter a text and start the analysis with the press of a button.</li>
+            <li>The logic provided in the Text Analyzer Java class (attached TextAnalyzer.java) is to be reused for the
+              TypeScript text analysis; the code should also be refactored to be in a "good enough" state.
+            </li>
+            <li>Write test(s) that check the output of the text analyzer logic.</li>
+            <li>The content of the analysis is displayed as a human-readable output in the UI.</li>
+            <li>An existing (previous) output should remain visible.</li>
+            <li>Implement a toggle switch that changes the application behavior between online and offline functionality
+              in this way:
+              <ul>
+                <li><em>Offline:</em> The application uses its own implementation of the "Text Analyzer" to analyze the
+                  user input.
+                </li>
+                <li><em>Online:</em> The application uses the REST API of the server to analyze the user input.</li>
+              </ul>
+            </li>
+          </ul>
+        </li>
+      </ul>
+      <p><strong>Backend part:</strong></p>
+      <ul>
+        <li>A backend part should be a Java server app with a RESTful API interface (Spring Boot is allowed) that would
+          provide functionality of the Text Analyzer.
+        </li>
+        <li>The Text Analyzer should also be refactored to be in a "good enough" state. This basically means two things:
+          <ul>
+            <li>A developer should not be ashamed to give his code to a colleague for a code review.</li>
+            <li>A company should not be afraid to sell this piece of software to another company.</li>
+          </ul>
+        </li>
+      </ul>
+
+    </div>
+    <div class="button-container">
+      <a href="/text-analyzer">
+        <button class="text-analyzer-button">To the Text Analyzer</button>
+      </a>
+    </div>
+
+  </div>
+
+</main>
+<footer>
+  <p>&copy; 2023 Mira Schaar.</p>
+</footer>
+</body>
+</html>
