@@ -1,7 +1,6 @@
-
-  <p class ="toggle-text"> {{ isToggled ? 'Online' : 'Offline' }}</p>
-  <label class="toggle-switch">
-    <input type="checkbox" [(ngModel)]="isToggled" (change)="onToggleChange($event)">
-    <span class="slider"></span>
-  </label>
+<p class="toggle-text"> {{ isToggled ? 'Online' : 'Offline' }}</p>
+<label class="toggle-switch">
+  <input type="checkbox" [(ngModel)]="isToggled" (change)="onToggleChange($event)">
+  <span class="slider"></span>
+</label>
 

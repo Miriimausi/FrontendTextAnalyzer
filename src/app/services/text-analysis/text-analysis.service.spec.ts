@@ -1,6 +1,6 @@
-import { TestBed } from '@angular/core/testing';
+import {TestBed} from '@angular/core/testing';
 
-import { TextAnalysisService } from './text-analysis.service';
+import {TextAnalysisService} from './text-analysis.service';
 import {AnalysisType} from "../../enums/analysis-type.enum";
 
 describe('TextAnalysisService', () => {

@@ -27,13 +27,13 @@ export class TextAnalysisService {
 
     switch (analysisType) {
       case AnalysisType.Vowels:
-        result = { vowelsResult, consonantsResult: {} };
+        result = {vowelsResult, consonantsResult: {}};
         break;
       case AnalysisType.Consonants:
-        result = { vowelsResult: {}, consonantsResult };
+        result = {vowelsResult: {}, consonantsResult};
         break;
       case AnalysisType.Both:
-        result = { vowelsResult, consonantsResult };
+        result = {vowelsResult, consonantsResult};
         break;
     }
 

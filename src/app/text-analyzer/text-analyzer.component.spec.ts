@@ -1,6 +1,6 @@
-import { ComponentFixture, TestBed } from '@angular/core/testing';
+import {ComponentFixture, TestBed} from '@angular/core/testing';
 
-import { TextAnalyzerComponent } from './text-analyzer.component';
+import {TextAnalyzerComponent} from './text-analyzer.component';
 
 describe('TextAnalyzerComponent', () => {
   let component: TextAnalyzerComponent;
@@ -10,8 +10,8 @@ describe('TextAnalyzerComponent', () => {
     await TestBed.configureTestingModule({
       imports: [TextAnalyzerComponent]
     })
-    .compileComponents();
-    
+      .compileComponents();
+
     fixture = TestBed.createComponent(TextAnalyzerComponent);
     component = fixture.componentInstance;
     fixture.detectChanges();

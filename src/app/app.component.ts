@@ -7,7 +7,6 @@ import {TextAnalysisApiService} from "./services/api/text-analysis.service.api";
 import {HttpClientModule} from "@angular/common/http";
 
 
-
 @Component({
   selector: 'app-root',
   standalone: true,
