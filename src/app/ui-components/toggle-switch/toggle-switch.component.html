@@ -1,3 +1,5 @@
+<!-- basic html for a toggle switch and text above the component -->
+
 <p class="toggle-text"> {{ isToggled ? 'Online' : 'Offline' }}</p>
 <label class="toggle-switch">
   <input type="checkbox" [(ngModel)]="isToggled" (change)="onToggleChange($event)">

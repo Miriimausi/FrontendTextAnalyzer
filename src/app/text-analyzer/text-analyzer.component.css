@@ -133,6 +133,43 @@ select {
   border-color: #2a3f5f;
 }
 
+/* <---------------- Sidebar styles ---------------> */
+.sidebar {
+  width: 30%;
+  height: 100%;
+  display: grid;
+  background-color: #213555;
+  gap: 10px;
+  padding-top: 5px;
+}
+
+.card {
+
+  background-color: #2a3f5f;
+  border: 1px solid #2a3f5f;
+  margin-bottom: 10px;
+  padding: 20px;
+  text-decoration: none;
+  color: #ffffff;
+  display: block;
+  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
+  border-radius: 10px;
+  transition: background-color 0.3s;
+}
+
+.card:hover {
+  background-color: #597f94;
+}
+
+.description-card {
+  color: #ffffff;
+  border-color: #2a3f5f;
+  font-size: 0.9rem;
+  margin-top: 5px;
+  text-align: left;
+}
+
+
 /* <-------------- error message ----------> */
 .error-modal {
   position: fixed;
@@ -172,41 +209,5 @@ select {
   color: #597f94;
   text-decoration: none;
   cursor: pointer;
-}
-
-/* <---------------- Sidebar styles ---------------> */
-.sidebar {
-  width: 30%;
-  height: 100%;
-  display: grid;
-  background-color: #213555;
-  gap: 10px;
-  padding-top: 5px;
-}
-
-.card {
-
-  background-color: #2a3f5f;
-  border: 1px solid #2a3f5f;
-  margin-bottom: 10px;
-  padding: 20px;
-  text-decoration: none;
-  color: #ffffff;
-  display: block;
-  box-shadow: 0 5px 10px 0 rgba(0, 0, 0, 0.5);
-  border-radius: 10px;
-  transition: background-color 0.3s;
-}
-
-.card:hover {
-  background-color: #597f94;
-}
-
-.description-card {
-  color: #ffffff;
-  border-color: #2a3f5f;
-  font-size: 0.9rem;
-  margin-top: 5px;
-  text-align: left;
 }
 

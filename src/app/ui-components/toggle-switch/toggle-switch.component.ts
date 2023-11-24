@@ -13,8 +13,8 @@ export class ToggleSwitchComponent {
   @Output() toggleChange = new EventEmitter<boolean>();
   isToggled: boolean = false;
 
+  // Updates the isToggled state and emits the new state to the parent
   onToggleChange(event: any): void {
-    this.isToggled = !this.isToggled;
     this.isToggled = event.target.checked;
     this.toggleChange.emit(this.isToggled);
   }

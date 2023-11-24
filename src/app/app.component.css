@@ -1,3 +1,4 @@
+/* <--------Navigationbar-------->  */
 .top-nav {
   background-color: #213555;
   padding: 20px;
@@ -34,6 +35,8 @@
   background-color: #597f94;
 }
 
+/* <--------main content ------------> */
+
 body {
   background-color: #213555;
   margin: 0;
@@ -43,6 +46,7 @@ body {
   overflow-x: auto;
 }
 
+/* <---------footer--------->*/
 footer {
   background-color: #213555;
   color: white;

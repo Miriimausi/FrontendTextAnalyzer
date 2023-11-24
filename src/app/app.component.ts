@@ -6,7 +6,7 @@ import {ToggleSwitchComponent} from "./ui-components/toggle-switch/toggle-switch
 import {TextAnalysisApiService} from "./services/api/text-analysis.service.api";
 import {HttpClientModule} from "@angular/common/http";
 
-
+//added imports for the routing, toggle-switch, and http connection
 @Component({
   selector: 'app-root',
   standalone: true,

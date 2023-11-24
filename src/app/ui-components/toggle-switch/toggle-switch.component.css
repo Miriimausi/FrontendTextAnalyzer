@@ -1,4 +1,4 @@
-
+/* <----- toggle switch styles --------> */
 .toggle-text {
   color: #ffffff;
   font-size: 0.9rem;
@@ -13,13 +13,11 @@
   height: 34px;
 }
 
-
 .toggle-switch input {
   opacity: 0;
   width: 0;
   height: 0;
 }
-
 
 .slider {
   position: absolute;
@@ -42,14 +40,13 @@
   left: 4px;
   bottom: 4px;
   background-color: #ffffff;
-  transition: transform .4s; /* Use transform for better performance */
+  transition: transform .4s;
   border-radius: 50%;
   box-shadow: 0 5px 10px rgba(0, 0, 0, 0.3);
 }
 
 input:checked + .slider {
   background-color: #6bb1d6;
-
 }
 
 input:focus + .slider {

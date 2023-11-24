@@ -36,8 +36,6 @@ export class TextAnalysisService {
         result = {vowelsResult, consonantsResult};
         break;
     }
-
-
     return of(result);
   }
 }

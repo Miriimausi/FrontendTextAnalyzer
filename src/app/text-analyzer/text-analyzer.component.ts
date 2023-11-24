@@ -1,6 +1,6 @@
 import {Component} from '@angular/core';
 import {CommonModule} from '@angular/common';
-import {FormsModule, ReactiveFormsModule} from "@angular/forms";
+import {FormsModule} from "@angular/forms";
 import {ToggleSwitchComponent} from "../ui-components/toggle-switch/toggle-switch.component";
 import {AnalysisType} from "../enums/analysis-type.enum";
 import {TextAnalysisResultInterface} from "../services/text-analysis/text-analysis-result.interface";
@@ -9,6 +9,7 @@ import {TextAnalysisApiService} from "../services/api/text-analysis.service.api"
 import {RouterOutlet} from "@angular/router";
 import {HttpClientModule} from "@angular/common/http";
 
+// uses the TextAnalysisApiService to call the REST api
 @Component({
   selector: 'app-text-analyzer',
   standalone: true,
@@ -18,22 +19,24 @@ import {HttpClientModule} from "@angular/common/http";
   providers: [TextAnalysisApiService],
 
 })
+
+
 export class TextAnalyzerComponent {
   text: string = '';
-  analysisType: AnalysisType = AnalysisType.Both;
   resultsArray: Array<{ text: string, result: TextAnalysisResultInterface }> = [];
   isOnline: boolean = false;
   errorMessage: string = '';
-  selectedAnalysisType: AnalysisType = AnalysisType.Both; // Assuming 'Both' is a valid enum member
+  selectedAnalysisType: AnalysisType = AnalysisType.Both;
   analysisTypeOptions: string[] = Object.keys(AnalysisType).map(k => AnalysisType[k as keyof typeof AnalysisType]);
 
   constructor(private textAnalysisService: TextAnalysisService, private textAnalysisApiService: TextAnalysisApiService) {
   }
 
+  // When online the call the API service
+  // When offline call the local service
   analyzeText(): void {
     this.errorMessage = "";
     if (this.isOnline) {
-      // When online, call the API service
       this.textAnalysisApiService.analyzeText(this.text, this.selectedAnalysisType)
         .subscribe({
           next: (response) => {
@@ -45,7 +48,7 @@ export class TextAnalyzerComponent {
           }
         });
     } else {
-      // When offline, call the local service
+
       this.textAnalysisService.analyzeText(this.text, this.selectedAnalysisType)
         .subscribe({
           next: (result) => {
@@ -59,11 +62,6 @@ export class TextAnalyzerComponent {
     }
   }
 
-
-  get analysisTypeKeys(): string[] {
-    return Object.keys(this.analysisType);
-  }
-
   handleToggle(toggled: boolean) {
     this.isOnline = toggled;
     console.log('Toggle is now: ', toggled);
@@ -72,6 +70,5 @@ export class TextAnalyzerComponent {
   closeError(): void {
     this.errorMessage = '';
   }
-
 
 }
