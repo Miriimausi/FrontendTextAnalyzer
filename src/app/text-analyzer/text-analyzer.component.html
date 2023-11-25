@@ -39,11 +39,11 @@
       <div *ngFor="let entry of resultsArray; let i = index">
         <h3>Result {{ i + 1 }} for "{{ entry.text }}" :</h3>
         <ul>
-          <li *ngFor="let vowel of entry.result.vowelsResult | keyvalue">
-            Vowel '{{vowel.key}}' appears {{vowel.value}} times
+          <li *ngFor="let Vowel of entry.result.vowelsResult | keyvalue">
+            Vowel '{{Vowel.key}}' appears {{Vowel.value}} times
           </li>
-          <li *ngFor="let consonant of entry.result.consonantsResult | keyvalue">
-            Consonant '{{consonant.key}}' appears {{consonant.value}} times
+          <li *ngFor="let Consonant of entry.result.consonantsResult | keyvalue">
+            Consonant '{{Consonant.key}}' appears {{Consonant.value}} times
           </li>
 
         </ul>
