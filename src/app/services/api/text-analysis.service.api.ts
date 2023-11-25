@@ -14,7 +14,12 @@ export class TextAnalysisApiService {
   }
 
   analyzeText(text: string, analysisType: string): Observable<any> {
-    return this.http.post<any>(`${this.apiUrl}/analyze`, {text, analysisType});
+    const payload = {
+      text: text,
+      analysisType: analysisType
+    };
+
+    return this.http.post<any>('http://localhost:8080/analyze', payload);
   }
 
 
