@@ -6,7 +6,7 @@ import {HttpClient} from "@angular/common/http";
   providedIn: "root"
 
 })
-//calls the api under the url + /analyze
+//calls the api endpoint /analyze
 export class TextAnalysisApiService {
   private apiUrl = 'http://localhost:8080';
 

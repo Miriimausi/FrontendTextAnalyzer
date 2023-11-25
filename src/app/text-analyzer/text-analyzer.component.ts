@@ -28,14 +28,13 @@ export class TextAnalyzerComponent {
   errorMessage: string = '';
   selectedAnalysisType: AnalysisType = AnalysisType.Both;
   analysisTypeOptions: string[] = Object.keys(AnalysisType).map(k => AnalysisType[k as keyof typeof AnalysisType]);
-
   constructor(private textAnalysisService: TextAnalysisService, private textAnalysisApiService: TextAnalysisApiService) {
   }
 
   // When online the call the API service
   // When offline call the local service
   analyzeText(): void {
-    this.errorMessage = "";
+
     if (this.isOnline) {
       this.textAnalysisApiService.analyzeText(this.text, this.selectedAnalysisType)
         .subscribe({
@@ -48,17 +47,8 @@ export class TextAnalyzerComponent {
           }
         });
     } else {
-
-      this.textAnalysisService.analyzeText(this.text, this.selectedAnalysisType)
-        .subscribe({
-          next: (result) => {
-            this.resultsArray.push({text: this.text, result: result});
-          },
-          error: (error) => {
-            console.error('Error during offline text analysis', error);
-            this.errorMessage = 'There was a problem analyzing the text offline. Please check the input or try again later.';
-          }
-        });
+      const result = this.textAnalysisService.analyzeText(this.text, this.selectedAnalysisType)
+      this.resultsArray.push({text: this.text, result: result});
     }
   }
 

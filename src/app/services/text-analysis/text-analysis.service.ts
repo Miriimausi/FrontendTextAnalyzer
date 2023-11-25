@@ -1,6 +1,5 @@
 import {Injectable} from '@angular/core';
 import {TextAnalysisResultInterface} from "./text-analysis-result.interface";
-import {Observable, of} from "rxjs";
 import {AnalysisType} from "../../enums/analysis-type.enum";
 
 @Injectable({
@@ -10,32 +9,35 @@ export class TextAnalysisService {
   constructor() {
   }
 
-  analyzeText(text: string, analysisType: AnalysisType): Observable<TextAnalysisResultInterface> {
+  analyzeText(text: string, analysisType: AnalysisType): TextAnalysisResultInterface {
     const vowelSet = new Set(['a', 'e', 'i', 'o', 'u']);
-    const vowelsResult: { [key: string]: number } = {};
-    const consonantsResult: { [key: string]: number } = {};
-
-    for (const char of text.toLowerCase()) {
-      if (vowelSet.has(char)) {
-        vowelsResult[char] = (vowelsResult[char] || 0) + 1;
-      } else if (char.match(/[a-z]/i)) {
-        consonantsResult[char] = (consonantsResult[char] || 0) + 1;
-      }
-    }
-
-    let result: TextAnalysisResultInterface;
+    let vowelsResult: { [key: string]: number } = {};
+    let consonantsResult: { [key: string]: number } = {};
 
     switch (analysisType) {
       case AnalysisType.Vowels:
-        result = {vowelsResult, consonantsResult: {}};
+        vowelsResult = this.countCharacters(text, vowelSet, true);
         break;
       case AnalysisType.Consonants:
-        result = {vowelsResult: {}, consonantsResult};
+        consonantsResult = this.countCharacters(text, vowelSet, false);
         break;
       case AnalysisType.Both:
-        result = {vowelsResult, consonantsResult};
+        vowelsResult = this.countCharacters(text, vowelSet, true);
+        consonantsResult = this.countCharacters(text, vowelSet, false);
         break;
     }
-    return of(result);
+
+    return {vowelsResult, consonantsResult};
   }
+
+  countCharacters(text: string, charSet: Set<string>, isVowel: boolean): { [key: string]: number } {
+    const result: { [key: string]: number } = {};
+    for (const char of text.toLowerCase()) {
+      if (isVowel ? charSet.has(char) : !charSet.has(char) && char.match(/[a-z]/i)) {
+        result[char] = (result[char] || 0) + 1;
+      }
+    }
+    return result;
+  }
+
 }
