@@ -8,8 +8,6 @@ import {HttpClient} from "@angular/common/http";
 })
 //calls the api endpoint /analyze
 export class TextAnalysisApiService {
-  private apiUrl = 'http://localhost:8080';
-
   constructor(private http: HttpClient) {
   }
 

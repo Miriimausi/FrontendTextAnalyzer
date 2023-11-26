@@ -28,6 +28,7 @@ export class TextAnalyzerComponent {
   errorMessage: string = '';
   selectedAnalysisType: AnalysisType = AnalysisType.Both;
   analysisTypeOptions: string[] = Object.keys(AnalysisType).map(k => AnalysisType[k as keyof typeof AnalysisType]);
+
   constructor(private textAnalysisService: TextAnalysisService, private textAnalysisApiService: TextAnalysisApiService) {
   }
 
