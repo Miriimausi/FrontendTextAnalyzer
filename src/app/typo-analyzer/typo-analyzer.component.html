@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<body class="dashboard">
+<main class="content-area">
+  <div class="text-analyzer-container">
+    <app-toggle-switch (toggleChange)="handleToggle($event)"></app-toggle-switch>
+    <div class="description">
+      This tool checks text for spelling mistakes, misplaced punctuation, and incorrect
+      grammar.
+    </div>
+
+    <div class="error-modal" *ngIf="errorMessage">
+      <div class="error-content">
+        <span class="close" (click)="closeError()">&times;</span>
+        <p>{{ errorMessage }}</p>
+      </div>
+    </div>
+
+    <textarea id="text-input" class="text-input" [(ngModel)]="text" rows="15"
+              placeholder="Please write or paste the text you would like to analyse here."></textarea>
+    <button class="submit-button" (click)="analyzeText()">Submit</button>
+
+  </div>
+
+
+  <aside class="sidebar">
+    <a href="/text-analyzer" class="card">
+      <h3>Text Analyzer</h3>
+      <p class="description-card">This tool is counting either vowels or consonants.</p>
+    </a>
+    <a class="card">
+      <h3>Picture Analyzer</h3>
+      <p class="description-card">This tool uses algorithms to evaluate and understand the contents of an image.
+        It detects and identifies objects, text...</p>
+    </a>
+    <a class="card">
+      <h3>Data Analyzer</h3>
+      <p class="description-card">This tool processes datasets to uncover trends, patterns....</p>
+    </a>
+  </aside>
+</main>
+
+</body>
+</html>
+
+
